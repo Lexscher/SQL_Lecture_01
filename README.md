@@ -8,6 +8,14 @@ Great for:
 - _Organizing data_
 - _finding data in a program_
 
+**__NOTE__**: Running the following commands when you enter sqlite3 will give you a __way__ better format than the default.
+```SQL
+.mode column
+.headers on
+.separator ROW "\n"
+.nullvalue NULL
+```
+
 ### CRUD
 
 Ceate
