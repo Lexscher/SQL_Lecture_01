@@ -33,7 +33,7 @@ Challenges:
 
 ```SQL
     CREATE TABLE fans (
-        id INTEGER PRIMARY KEY,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT
     );
 ```
@@ -65,16 +65,33 @@ Challenges:
     SELECT * FROM fans WHERE artist_id <> 169;
 ```
 
-8. show us all the artist names and album titles
+8. Write the SQL to show us all the artist names and album titles.
 
 ```SQL
     SELECT artist.name, album.title FROM artists JOIN albums ON artists.id = albums.artist_id;
 ```
 
-9. show us the artist name, album name, and number of tracks on that album
+9. Write the SQL to show us the artist name, album name, and number of tracks on that album.
 
 ```SQL
-    SELECT artists.name, albums.title, tracks.name FROM albums 
+    SELECT artists.name, albums.title, COUNT(tracks.name) FROM albums 
     JOIN artists ON artists.id = albums.artist_id
-    JOIN tracks ON albums.id = tracks.album_id;
+    JOIN tracks ON albums.id = tracks.album_id
+    GROUP BY albums.title
+    LIMIT 100;
+```
+
+9. Write the SQL that shows us the artist name, album name, and number of tracks on that album.
+
+```SQL
+    SELECT artists.name, albums.title, COUNT(tracks.name) FROM albums 
+    JOIN artists ON artists.id = albums.artist_id
+    JOIN tracks ON albums.id = tracks.album_id
+    GROUP BY albums.title
+    LIMIT 100;
+```
+
+10. Write the SQL to delete a fan.
+```SQL
+    DELETE FROM fans WHERE name = "Phil";
 ```
